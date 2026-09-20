@@ -2,10 +2,6 @@
 
 An asynchronous document intelligence service built in phases for U1T02.
 
-**Phases 1–6 are implemented:** upload a document, receive a job ID, and retrieve extracted text after a Celery worker processes it. Supported inputs are PDF, PNG, JPG/JPEG, and UTF-8 TXT. The worker uses pypdf for native PDF text, PDFium for rendering, and Tesseract for English/Spanish OCR.
-
-**Next: phase 7 final report and delivery.** Recovery and clean-state integration have been verified. See [phase 6 acceptance](docs/06-integration.md) for reproducible Docker-only checks and their scope.
-
 ## Run
 
 Install Docker with Compose and Linux containers, then run:
