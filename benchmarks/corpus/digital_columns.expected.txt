@@ -1,0 +1,12 @@
+Ingestion
+Accept the file.
+Validate its format.
+Store its original bytes.
+Register the job.
+Return its identifier.
+Processing
+Read a queued identifier.
+Locate the saved file.
+Extract its text.
+Save the result.
+Report the final state.

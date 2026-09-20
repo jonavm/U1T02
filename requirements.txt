@@ -1,0 +1,11 @@
+fastapi==0.141.1
+starlette==1.6.0
+uvicorn==0.53.0
+SQLAlchemy==2.0.54
+psycopg[binary]==3.3.6
+python-multipart==0.0.32
+celery[redis]==5.6.3
+alembic==1.20.0
+pypdf==6.19.0
+pypdfium2==5.13.0
+Pillow==12.3.0

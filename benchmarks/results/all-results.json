@@ -1,0 +1,668 @@
+[
+  {
+    "sample": "digital_eng",
+    "group": "digital_pdf",
+    "method": "pypdf",
+    "first_call_ms": 78.22899999882793,
+    "measured_ms": [
+      1.6245999995589955,
+      1.4443000000028405,
+      1.357000001007691
+    ],
+    "median_ms": 1.4443000000028405,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_eng",
+    "group": "scanned_pdf",
+    "method": "pypdf",
+    "first_call_ms": 1.02100000003702,
+    "measured_ms": [
+      1.0499999989406206,
+      1.6180000002350425,
+      0.9575000003678724
+    ],
+    "median_ms": 1.0499999989406206,
+    "character_errors": 487,
+    "reference_characters": 487,
+    "word_errors": 68,
+    "reference_words": 68,
+    "cer": 1.0,
+    "wer": 1.0
+  },
+  {
+    "sample": "digital_spa",
+    "group": "digital_pdf",
+    "method": "pypdf",
+    "first_call_ms": 1.5293000014935387,
+    "measured_ms": [
+      1.4759999994566897,
+      1.4717000012751669,
+      1.5232000005198643
+    ],
+    "median_ms": 1.4759999994566897,
+    "character_errors": 0,
+    "reference_characters": 502,
+    "word_errors": 0,
+    "reference_words": 74,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_spa",
+    "group": "scanned_pdf",
+    "method": "pypdf",
+    "first_call_ms": 0.8864000010362361,
+    "measured_ms": [
+      1.0025999999925261,
+      1.0366000005888054,
+      0.9352999986731447
+    ],
+    "median_ms": 1.0025999999925261,
+    "character_errors": 502,
+    "reference_characters": 502,
+    "word_errors": 74,
+    "reference_words": 74,
+    "cer": 1.0,
+    "wer": 1.0
+  },
+  {
+    "sample": "digital_columns",
+    "group": "digital_pdf",
+    "method": "pypdf",
+    "first_call_ms": 7.6836000007460825,
+    "measured_ms": [
+      1.5027999997982988,
+      1.3961000004201196,
+      1.3988000009703683
+    ],
+    "median_ms": 1.3988000009703683,
+    "character_errors": 0,
+    "reference_characters": 233,
+    "word_errors": 0,
+    "reference_words": 36,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "mixed",
+    "group": "mixed_pdf",
+    "method": "pypdf",
+    "first_call_ms": 2.172900000005029,
+    "measured_ms": [
+      2.13649999932386,
+      2.0165000005363254,
+      1.929599999130005
+    ],
+    "median_ms": 2.0165000005363254,
+    "character_errors": 503,
+    "reference_characters": 990,
+    "word_errors": 74,
+    "reference_words": 142,
+    "cer": 0.5080808080808081,
+    "wer": 0.5211267605633803
+  },
+  {
+    "sample": "digital_eng",
+    "group": "digital_pdf",
+    "method": "pymupdf",
+    "first_call_ms": 64.36519999988377,
+    "measured_ms": [
+      1.2900999990961282,
+      1.089900000806665,
+      0.9883000002446352
+    ],
+    "median_ms": 1.089900000806665,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_eng",
+    "group": "scanned_pdf",
+    "method": "pymupdf",
+    "first_call_ms": 1.5360999987024115,
+    "measured_ms": [
+      1.3445000004139729,
+      1.082700000551995,
+      1.535699999294593
+    ],
+    "median_ms": 1.3445000004139729,
+    "character_errors": 487,
+    "reference_characters": 487,
+    "word_errors": 68,
+    "reference_words": 68,
+    "cer": 1.0,
+    "wer": 1.0
+  },
+  {
+    "sample": "digital_spa",
+    "group": "digital_pdf",
+    "method": "pymupdf",
+    "first_call_ms": 1.5834000005270354,
+    "measured_ms": [
+      1.1439999998401618,
+      1.1359000000084052,
+      1.013200000670622
+    ],
+    "median_ms": 1.1359000000084052,
+    "character_errors": 0,
+    "reference_characters": 502,
+    "word_errors": 0,
+    "reference_words": 74,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_spa",
+    "group": "scanned_pdf",
+    "method": "pymupdf",
+    "first_call_ms": 1.467600000978564,
+    "measured_ms": [
+      1.675999999861233,
+      1.1147999994136626,
+      1.0083999986818526
+    ],
+    "median_ms": 1.1147999994136626,
+    "character_errors": 502,
+    "reference_characters": 502,
+    "word_errors": 74,
+    "reference_words": 74,
+    "cer": 1.0,
+    "wer": 1.0
+  },
+  {
+    "sample": "digital_columns",
+    "group": "digital_pdf",
+    "method": "pymupdf",
+    "first_call_ms": 1.05979999898409,
+    "measured_ms": [
+      1.0076999988086754,
+      0.990099999398808,
+      0.9422000002814457
+    ],
+    "median_ms": 0.990099999398808,
+    "character_errors": 0,
+    "reference_characters": 233,
+    "word_errors": 0,
+    "reference_words": 36,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "mixed",
+    "group": "mixed_pdf",
+    "method": "pymupdf",
+    "first_call_ms": 2.072900000712252,
+    "measured_ms": [
+      1.818200000343495,
+      1.8517999997129664,
+      1.8072999992000405
+    ],
+    "median_ms": 1.818200000343495,
+    "character_errors": 503,
+    "reference_characters": 990,
+    "word_errors": 74,
+    "reference_words": 142,
+    "cer": 0.5080808080808081,
+    "wer": 0.5211267605633803
+  },
+  {
+    "sample": "clean_eng",
+    "group": "image",
+    "method": "tesseract",
+    "first_call_ms": 386.92010000158916,
+    "measured_ms": [
+      340.9979000007297,
+      365.07669999991776,
+      348.7617999999202
+    ],
+    "median_ms": 348.7617999999202,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_eng",
+    "group": "scanned_pdf",
+    "method": "tesseract",
+    "first_call_ms": 502.25769999997283,
+    "measured_ms": [
+      378.2456999997521,
+      403.9413999998942,
+      391.5507000001526
+    ],
+    "median_ms": 391.5507000001526,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "clean_spa",
+    "group": "image",
+    "method": "tesseract",
+    "first_call_ms": 643.3194000001095,
+    "measured_ms": [
+      635.6782999991992,
+      639.7245000007388,
+      629.992800000764
+    ],
+    "median_ms": 635.6782999991992,
+    "character_errors": 4,
+    "reference_characters": 502,
+    "word_errors": 4,
+    "reference_words": 74,
+    "cer": 0.00796812749003984,
+    "wer": 0.05405405405405406
+  },
+  {
+    "sample": "scanned_spa",
+    "group": "scanned_pdf",
+    "method": "tesseract",
+    "first_call_ms": 678.1730000002426,
+    "measured_ms": [
+      652.0880999996734,
+      661.6938999995909,
+      673.9858000000822
+    ],
+    "median_ms": 661.6938999995909,
+    "character_errors": 4,
+    "reference_characters": 502,
+    "word_errors": 4,
+    "reference_words": 74,
+    "cer": 0.00796812749003984,
+    "wer": 0.05405405405405406
+  },
+  {
+    "sample": "degraded_eng",
+    "group": "image",
+    "method": "tesseract",
+    "first_call_ms": 288.3734999995795,
+    "measured_ms": [
+      315.26169999960985,
+      285.5653999995411,
+      280.48630000012054
+    ],
+    "median_ms": 285.5653999995411,
+    "character_errors": 1,
+    "reference_characters": 487,
+    "word_errors": 2,
+    "reference_words": 68,
+    "cer": 0.002053388090349076,
+    "wer": 0.029411764705882353
+  },
+  {
+    "sample": "receipt_spa",
+    "group": "image",
+    "method": "tesseract",
+    "first_call_ms": 345.5543000000034,
+    "measured_ms": [
+      324.8268999996071,
+      340.13539999978093,
+      325.73039999988396
+    ],
+    "median_ms": 325.73039999988396,
+    "character_errors": 0,
+    "reference_characters": 177,
+    "word_errors": 0,
+    "reference_words": 25,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "clean_eng",
+    "group": "image",
+    "method": "rapidocr",
+    "first_call_ms": 3099.9935999989248,
+    "measured_ms": [
+      2061.1344000008103,
+      2180.559300000823,
+      2201.941799999986
+    ],
+    "median_ms": 2180.559300000823,
+    "character_errors": 63,
+    "reference_characters": 487,
+    "word_errors": 8,
+    "reference_words": 68,
+    "cer": 0.1293634496919918,
+    "wer": 0.11764705882352941
+  },
+  {
+    "sample": "scanned_eng",
+    "group": "scanned_pdf",
+    "method": "rapidocr",
+    "first_call_ms": 2299.789900000178,
+    "measured_ms": [
+      2089.95429999959,
+      2165.019099998972,
+      2164.488899999924
+    ],
+    "median_ms": 2164.488899999924,
+    "character_errors": 63,
+    "reference_characters": 487,
+    "word_errors": 8,
+    "reference_words": 68,
+    "cer": 0.1293634496919918,
+    "wer": 0.11764705882352941
+  },
+  {
+    "sample": "clean_spa",
+    "group": "image",
+    "method": "rapidocr",
+    "first_call_ms": 2305.5076000000554,
+    "measured_ms": [
+      2064.987400000973,
+      2041.3248000004387,
+      2018.7459999997373
+    ],
+    "median_ms": 2041.3248000004387,
+    "character_errors": 64,
+    "reference_characters": 502,
+    "word_errors": 10,
+    "reference_words": 74,
+    "cer": 0.12749003984063745,
+    "wer": 0.13513513513513514
+  },
+  {
+    "sample": "scanned_spa",
+    "group": "scanned_pdf",
+    "method": "rapidocr",
+    "first_call_ms": 2100.4192999989755,
+    "measured_ms": [
+      2076.9476999994367,
+      2060.3219000004174,
+      2101.1887999993633
+    ],
+    "median_ms": 2076.9476999994367,
+    "character_errors": 64,
+    "reference_characters": 502,
+    "word_errors": 10,
+    "reference_words": 74,
+    "cer": 0.12749003984063745,
+    "wer": 0.13513513513513514
+  },
+  {
+    "sample": "degraded_eng",
+    "group": "image",
+    "method": "rapidocr",
+    "first_call_ms": 2100.767999998425,
+    "measured_ms": [
+      1445.8279000009497,
+      1447.6438000001508,
+      1403.897500000312
+    ],
+    "median_ms": 1445.8279000009497,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "receipt_spa",
+    "group": "image",
+    "method": "rapidocr",
+    "first_call_ms": 1006.0883999994985,
+    "measured_ms": [
+      661.8742000009661,
+      671.0970999993151,
+      649.5571000014024
+    ],
+    "median_ms": 661.8742000009661,
+    "character_errors": 2,
+    "reference_characters": 177,
+    "word_errors": 4,
+    "reference_words": 25,
+    "cer": 0.011299435028248588,
+    "wer": 0.16
+  },
+  {
+    "sample": "digital_eng",
+    "group": "digital_pdf",
+    "method": "hybrid_tesseract",
+    "first_call_ms": 79.63910000034957,
+    "measured_ms": [
+      1.936599999680766,
+      1.4522999990731478,
+      1.4286000005085953
+    ],
+    "median_ms": 1.4522999990731478,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_eng",
+    "group": "scanned_pdf",
+    "method": "hybrid_tesseract",
+    "first_call_ms": 452.89729999967676,
+    "measured_ms": [
+      388.68080000065675,
+      394.259200000306,
+      402.17569999913394
+    ],
+    "median_ms": 394.259200000306,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "digital_spa",
+    "group": "digital_pdf",
+    "method": "hybrid_tesseract",
+    "first_call_ms": 1.9773999993049074,
+    "measured_ms": [
+      1.4759999994566897,
+      1.4769000008527655,
+      2.3914000012155157
+    ],
+    "median_ms": 1.4769000008527655,
+    "character_errors": 0,
+    "reference_characters": 502,
+    "word_errors": 0,
+    "reference_words": 74,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_spa",
+    "group": "scanned_pdf",
+    "method": "hybrid_tesseract",
+    "first_call_ms": 717.1896999989258,
+    "measured_ms": [
+      676.8393999991531,
+      680.8240999998816,
+      692.4350999997841
+    ],
+    "median_ms": 680.8240999998816,
+    "character_errors": 4,
+    "reference_characters": 502,
+    "word_errors": 4,
+    "reference_words": 74,
+    "cer": 0.00796812749003984,
+    "wer": 0.05405405405405406
+  },
+  {
+    "sample": "digital_columns",
+    "group": "digital_pdf",
+    "method": "hybrid_tesseract",
+    "first_call_ms": 1.538599999548751,
+    "measured_ms": [
+      1.4934999999240972,
+      1.3598000005003996,
+      1.34520000028715
+    ],
+    "median_ms": 1.3598000005003996,
+    "character_errors": 0,
+    "reference_characters": 233,
+    "word_errors": 0,
+    "reference_words": 36,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "mixed",
+    "group": "mixed_pdf",
+    "method": "hybrid_tesseract",
+    "first_call_ms": 769.7392999998556,
+    "measured_ms": [
+      775.007000000187,
+      764.0974000005372,
+      805.9360999995988
+    ],
+    "median_ms": 775.007000000187,
+    "character_errors": 7,
+    "reference_characters": 990,
+    "word_errors": 6,
+    "reference_words": 142,
+    "cer": 0.007070707070707071,
+    "wer": 0.04225352112676056
+  },
+  {
+    "sample": "digital_eng",
+    "group": "digital_pdf",
+    "method": "hybrid_rapidocr",
+    "first_call_ms": 67.24619999840797,
+    "measured_ms": [
+      1.4774000010220334,
+      1.4644000002590474,
+      1.936500000738306
+    ],
+    "median_ms": 1.4774000010220334,
+    "character_errors": 0,
+    "reference_characters": 487,
+    "word_errors": 0,
+    "reference_words": 68,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_eng",
+    "group": "scanned_pdf",
+    "method": "hybrid_rapidocr",
+    "first_call_ms": 3174.2173000002367,
+    "measured_ms": [
+      2123.905399999785,
+      2138.461999998981,
+      2181.921699999293
+    ],
+    "median_ms": 2138.461999998981,
+    "character_errors": 63,
+    "reference_characters": 487,
+    "word_errors": 8,
+    "reference_words": 68,
+    "cer": 0.1293634496919918,
+    "wer": 0.11764705882352941
+  },
+  {
+    "sample": "digital_spa",
+    "group": "digital_pdf",
+    "method": "hybrid_rapidocr",
+    "first_call_ms": 1.556400000481517,
+    "measured_ms": [
+      1.645700000153738,
+      1.5751999999338295,
+      4.292399999030749
+    ],
+    "median_ms": 1.645700000153738,
+    "character_errors": 0,
+    "reference_characters": 502,
+    "word_errors": 0,
+    "reference_words": 74,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "scanned_spa",
+    "group": "scanned_pdf",
+    "method": "hybrid_rapidocr",
+    "first_call_ms": 2312.783800000034,
+    "measured_ms": [
+      2196.317799998724,
+      2085.577600000761,
+      2132.567399999971
+    ],
+    "median_ms": 2132.567399999971,
+    "character_errors": 64,
+    "reference_characters": 502,
+    "word_errors": 10,
+    "reference_words": 74,
+    "cer": 0.12749003984063745,
+    "wer": 0.13513513513513514
+  },
+  {
+    "sample": "digital_columns",
+    "group": "digital_pdf",
+    "method": "hybrid_rapidocr",
+    "first_call_ms": 1.5526999995927326,
+    "measured_ms": [
+      5.876299999727053,
+      1.6763000003265915,
+      1.5561000000161584
+    ],
+    "median_ms": 1.6763000003265915,
+    "character_errors": 0,
+    "reference_characters": 233,
+    "word_errors": 0,
+    "reference_words": 36,
+    "cer": 0.0,
+    "wer": 0.0
+  },
+  {
+    "sample": "mixed",
+    "group": "mixed_pdf",
+    "method": "hybrid_rapidocr",
+    "first_call_ms": 2064.9094999989757,
+    "measured_ms": [
+      2075.5958999998256,
+      2122.843900000589,
+      2103.450200000225
+    ],
+    "median_ms": 2103.450200000225,
+    "character_errors": 64,
+    "reference_characters": 990,
+    "word_errors": 10,
+    "reference_words": 142,
+    "cer": 0.06464646464646465,
+    "wer": 0.07042253521126761
+  },
+  {
+    "sample": "plain_utf8",
+    "group": "text",
+    "method": "utf8",
+    "first_call_ms": 0.06550000034621917,
+    "measured_ms": [
+      0.05140000030223746,
+      0.05249999958323315,
+      0.050999999075429514
+    ],
+    "median_ms": 0.05140000030223746,
+    "character_errors": 0,
+    "reference_characters": 990,
+    "word_errors": 0,
+    "reference_words": 142,
+    "cer": 0.0,
+    "wer": 0.0
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "digital_eng",
+    "file": "digital_eng.pdf",
+    "group": "digital_pdf",
+    "language": "eng",
+    "expected": "digital_eng.expected.txt",
+    "sha256": "3e8340573b735cfb00b467a2a487f96ac6cf2a69fd5197fd23a1e77d083aa2f0",
+    "description": "Single-column selectable text, Helvetica 12."
+  },
+  {
+    "id": "clean_eng",
+    "file": "clean_eng.png",
+    "group": "image",
+    "language": "eng",
+    "expected": "clean_eng.expected.txt",
+    "sha256": "18fe62f42b57a34068afbcfbed14809ea670761bab729a479c3ad6ececdbc781",
+    "description": "Clean synthetic scan at 180 DPI."
+  },
+  {
+    "id": "scanned_eng",
+    "file": "scanned_eng.pdf",
+    "group": "scanned_pdf",
+    "language": "eng",
+    "expected": "scanned_eng.expected.txt",
+    "sha256": "3f3f82832adde93747842eb95def4f3ccca4be7890a7866c3e1882b1c59c418e",
+    "description": "Image-only PDF; no text layer."
+  },
+  {
+    "id": "digital_spa",
+    "file": "digital_spa.pdf",
+    "group": "digital_pdf",
+    "language": "spa",
+    "expected": "digital_spa.expected.txt",
+    "sha256": "ff8f8512820ec146f6f30c95fa774d392c5d77aaab9be23333882fb9296682e5",
+    "description": "Single-column selectable text, Helvetica 12."
+  },
+  {
+    "id": "clean_spa",
+    "file": "clean_spa.png",
+    "group": "image",
+    "language": "spa",
+    "expected": "clean_spa.expected.txt",
+    "sha256": "68d8d93e6eb68b31305b7a3f9922a3cf3deabcdb3fda356e765a0f31d2de9ecf",
+    "description": "Clean synthetic scan at 180 DPI."
+  },
+  {
+    "id": "scanned_spa",
+    "file": "scanned_spa.pdf",
+    "group": "scanned_pdf",
+    "language": "spa",
+    "expected": "scanned_spa.expected.txt",
+    "sha256": "0b7f2dc0731bd3b211026dbad9066e27713a2fdbb960ee3de1b40af88e14b557",
+    "description": "Image-only PDF; no text layer."
+  },
+  {
+    "id": "digital_columns",
+    "file": "digital_columns.pdf",
+    "group": "digital_pdf",
+    "language": "eng",
+    "expected": "digital_columns.expected.txt",
+    "sha256": "f3807ecd284d095e34e3a0e7850b3967c0a992d692b540bdd7497e92919e4eba",
+    "description": "Two columns; ground truth reads the left column before the right column."
+  },
+  {
+    "id": "degraded_eng",
+    "file": "degraded_eng.jpg",
+    "group": "image",
+    "language": "eng",
+    "expected": "degraded_eng.expected.txt",
+    "sha256": "cad735159bd69fcccefb8fedc5302a55b9458f005f574ebed49fb2c96ad520fb",
+    "description": "120 DPI, 2.5-degree skew, 0.60 contrast, 0.7 blur, JPEG quality 45."
+  },
+  {
+    "id": "receipt_spa",
+    "file": "receipt_spa.jpg",
+    "group": "image",
+    "language": "spa",
+    "expected": "receipt_spa.expected.txt",
+    "sha256": "098753182a8d7e897e9ca9bda4b1c18ec9dadae7a3878a80b7ac405f53b31df9",
+    "description": "Synthetic receipt, 144 DPI, JPEG quality 75."
+  },
+  {
+    "id": "mixed",
+    "file": "mixed.pdf",
+    "group": "mixed_pdf",
+    "language": "spa+eng",
+    "expected": "mixed.expected.txt",
+    "sha256": "845e93e24bddb53de0f58c69449ec1e242b8b9b67a67d7e0ff83e2939ed190ac",
+    "description": "Two pages: English selectable text, then a Spanish scanned page."
+  },
+  {
+    "id": "plain_utf8",
+    "file": "plain_utf8.txt",
+    "group": "text",
+    "language": "spa+eng",
+    "expected": "plain_utf8.expected.txt",
+    "sha256": "0488b742e979afdb0afcf81816b687a13c17222b775fcc5424a227fc3566be34",
+    "description": "UTF-8 direct-read baseline."
+  }
+]

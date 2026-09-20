@@ -1,0 +1,26 @@
+{
+  "method": "utf8",
+  "initialization_ms": 0.0034000004234258085,
+  "sampled_peak_process_tree_rss_mib": 25.39453125,
+  "memory_sampling_errors": 0,
+  "records": [
+    {
+      "sample": "plain_utf8",
+      "group": "text",
+      "method": "utf8",
+      "first_call_ms": 0.06550000034621917,
+      "measured_ms": [
+        0.05140000030223746,
+        0.05249999958323315,
+        0.050999999075429514
+      ],
+      "median_ms": 0.05140000030223746,
+      "character_errors": 0,
+      "reference_characters": 990,
+      "word_errors": 0,
+      "reference_words": 142,
+      "cer": 0.0,
+      "wer": 0.0
+    }
+  ]
+}

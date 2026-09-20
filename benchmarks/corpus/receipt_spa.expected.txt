@@ -1,0 +1,10 @@
+MERCADO CENTRAL
+Fecha: 19/09/2026
+Ticket: MX-0042
+Café molido: 125.50
+Pan integral: 48.00
+Azúcar: 32.25
+Total: 205.75
+Pago recibido: 250.00
+Cambio: 44.25
+¡Gracias por su compra!

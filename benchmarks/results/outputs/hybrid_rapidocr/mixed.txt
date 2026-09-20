@@ -1,0 +1,20 @@
+Document Intelligence - Operations Note
+Reference: DS-2026-0919
+The service accepts documents and stores each original file.
+A worker extracts text while the client checks job progress.
+Queue messages contain identifiers rather than document bytes.
+Retries must preserve the original job and avoid duplicate results.
+Upload limit: 20 MiB. Maximum PDF length: 100 pages.
+Measured values: 42 records, 98.5 percent, and 1250.75 units.
+Contact: research@example.org
+Status: ready for review.
+
+Inteligencia documental - Nota de operaciones
+Referencia: MX-2026-0919
+El sistema recibe documentos y conserva el archivo original.
+La extracción continúa mientras el usuario consulta el progreso.
+La información incluye tamaño, fecha y método de análisis.
+Revisión: miércoles. Ubicación: Ciudad de México.
+Valores: 42 registros, 98.5 por ciento y 1250.75 unidades.
+Caracteres: á, é, í, ó, ú, ü, ñ, ¿qué?, ¡sí!
+Estado: listo para revisión.

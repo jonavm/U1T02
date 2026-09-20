@@ -1,0 +1,129 @@
+services:
+  api:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://documents:documents@db:5432/documents
+      STORAGE_DIR: /data/documents
+      MAX_UPLOAD_BYTES: ${MAX_UPLOAD_BYTES:-20971520}
+      PROCESSING_ENABLED: "true"
+      AUTO_MIGRATE: "false"
+    volumes:
+      - documents:/data/documents
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  migrate:
+    build:
+      context: .
+      target: runtime
+    command: ["python", "-m", "app.migrate"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://documents:documents@db:5432/documents
+    depends_on:
+      db:
+        condition: service_healthy
+
+  redis:
+    image: redis:7.4-bookworm
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      target: runtime
+    command: ["celery", "-A", "app.worker:celery_app", "worker", "--loglevel=INFO", "--concurrency=2"]
+    environment: &worker_environment
+      DATABASE_URL: postgresql+psycopg://documents:documents@db:5432/documents
+      BROKER_URL: redis://redis:6379/0
+      STORAGE_DIR: /data/documents
+      MAX_PDF_PAGES: ${MAX_PDF_PAGES:-100}
+      OCR_DPI: ${OCR_DPI:-180}
+      OCR_TIMEOUT_SECONDS: ${OCR_TIMEOUT_SECONDS:-90}
+    volumes:
+      - documents:/data/documents:ro
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  dispatcher:
+    build:
+      context: .
+      target: runtime
+    command: ["python", "-m", "app.dispatcher"]
+    environment: *worker_environment
+    volumes:
+      - documents:/data/documents
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_USER: documents
+      POSTGRES_PASSWORD: documents
+      POSTGRES_DB: documents
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U documents -d documents"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  test-db:
+    image: postgres:17-bookworm
+    profiles: ["test"]
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test -d test"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+
+  tests:
+    build:
+      context: .
+      target: test
+    profiles: ["test"]
+    environment:
+      TEST_DATABASE_URL: postgresql+psycopg://test:test@test-db:5432/test
+    depends_on:
+      test-db:
+        condition: service_healthy
+
+volumes:
+  documents:
+  postgres_data:
+  redis_data:

@@ -1,0 +1,116 @@
+{
+  "method": "tesseract",
+  "initialization_ms": 0.0035999983083456755,
+  "sampled_peak_process_tree_rss_mib": 141.859375,
+  "memory_sampling_errors": 0,
+  "records": [
+    {
+      "sample": "clean_eng",
+      "group": "image",
+      "method": "tesseract",
+      "first_call_ms": 386.92010000158916,
+      "measured_ms": [
+        340.9979000007297,
+        365.07669999991776,
+        348.7617999999202
+      ],
+      "median_ms": 348.7617999999202,
+      "character_errors": 0,
+      "reference_characters": 487,
+      "word_errors": 0,
+      "reference_words": 68,
+      "cer": 0.0,
+      "wer": 0.0
+    },
+    {
+      "sample": "scanned_eng",
+      "group": "scanned_pdf",
+      "method": "tesseract",
+      "first_call_ms": 502.25769999997283,
+      "measured_ms": [
+        378.2456999997521,
+        403.9413999998942,
+        391.5507000001526
+      ],
+      "median_ms": 391.5507000001526,
+      "character_errors": 0,
+      "reference_characters": 487,
+      "word_errors": 0,
+      "reference_words": 68,
+      "cer": 0.0,
+      "wer": 0.0
+    },
+    {
+      "sample": "clean_spa",
+      "group": "image",
+      "method": "tesseract",
+      "first_call_ms": 643.3194000001095,
+      "measured_ms": [
+        635.6782999991992,
+        639.7245000007388,
+        629.992800000764
+      ],
+      "median_ms": 635.6782999991992,
+      "character_errors": 4,
+      "reference_characters": 502,
+      "word_errors": 4,
+      "reference_words": 74,
+      "cer": 0.00796812749003984,
+      "wer": 0.05405405405405406
+    },
+    {
+      "sample": "scanned_spa",
+      "group": "scanned_pdf",
+      "method": "tesseract",
+      "first_call_ms": 678.1730000002426,
+      "measured_ms": [
+        652.0880999996734,
+        661.6938999995909,
+        673.9858000000822
+      ],
+      "median_ms": 661.6938999995909,
+      "character_errors": 4,
+      "reference_characters": 502,
+      "word_errors": 4,
+      "reference_words": 74,
+      "cer": 0.00796812749003984,
+      "wer": 0.05405405405405406
+    },
+    {
+      "sample": "degraded_eng",
+      "group": "image",
+      "method": "tesseract",
+      "first_call_ms": 288.3734999995795,
+      "measured_ms": [
+        315.26169999960985,
+        285.5653999995411,
+        280.48630000012054
+      ],
+      "median_ms": 285.5653999995411,
+      "character_errors": 1,
+      "reference_characters": 487,
+      "word_errors": 2,
+      "reference_words": 68,
+      "cer": 0.002053388090349076,
+      "wer": 0.029411764705882353
+    },
+    {
+      "sample": "receipt_spa",
+      "group": "image",
+      "method": "tesseract",
+      "first_call_ms": 345.5543000000034,
+      "measured_ms": [
+        324.8268999996071,
+        340.13539999978093,
+        325.73039999988396
+      ],
+      "median_ms": 325.73039999988396,
+      "character_errors": 0,
+      "reference_characters": 177,
+      "word_errors": 0,
+      "reference_words": 25,
+      "cer": 0.0,
+      "wer": 0.0
+    }
+  ]
+}
