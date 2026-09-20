@@ -1443,7 +1443,7 @@
                             <div class="job-info">
 
                                 <div class="info-label">
-                                    Celery Task
+                                    Processing Stage
                                 </div>
 
                                 <div
@@ -2256,10 +2256,10 @@
                 }
 
                 currentJobId =
-                    data.document_id;
+                    data.job_id;
 
                 currentTaskId =
-                    data.task_id;
+                    null;
 
                 document.getElementById(
                     "job-id"
@@ -2269,7 +2269,7 @@
                 document.getElementById(
                     "job-file-type"
                 ).textContent =
-                    data.file_type || "-";
+                    selectedFile.type || "-";
 
                 setJobMessage(
                     "Document accepted. Waiting for processing..."
@@ -2390,7 +2390,6 @@
                 );
 
             if (!response.ok) {
-
                 throw new Error(
                     "Could not retrieve job status."
                 );
@@ -2399,27 +2398,40 @@
             const job =
                 await response.json();
 
+            let progress = 0;
+
+            if (job.status === "processing") {
+                progress = 50;
+            }
+
+            if (
+                job.status === "succeeded"
+                || job.status === "failed"
+            ) {
+                progress = 100;
+            }
+
+            const visualStatus =
+                job.status === "succeeded"
+                    ? "COMPLETED"
+                    : job.status.toUpperCase();
+
             updateJobVisual(
-                job.status,
-                job.progress ?? 0
+                visualStatus,
+                progress
             );
 
             document.getElementById(
                 "job-file-type"
             ).textContent =
-                job.file_type || "-";
+                job.detected_type || "-";
 
-            if (currentTaskId) {
+            document.getElementById(
+                "job-task-state"
+            ).textContent =
+                job.stage || "-";
 
-                loadTaskState(
-                    currentTaskId
-                );
-            }
-
-            if (
-                job.status
-                === "QUEUED"
-            ) {
+            if (job.status === "queued") {
 
                 setJobMessage(
                     "Waiting for an available worker."
@@ -2427,8 +2439,7 @@
             }
 
             else if (
-                job.status
-                === "PROCESSING"
+                job.status === "processing"
             ) {
 
                 setJobMessage(
@@ -2437,15 +2448,13 @@
             }
 
             else if (
-                job.status
-                === "COMPLETED"
+                job.status === "succeeded"
             ) {
 
-                clearInterval(
-                    pollTimer
-                );
-
-                pollTimer = null;
+                if (pollTimer) {
+                    clearInterval(pollTimer);
+                    pollTimer = null;
+                }
 
                 setJobMessage(
                     "Processing completed successfully."
@@ -2454,13 +2463,6 @@
                 await loadResult(
                     currentJobId
                 );
-
-                if (currentTaskId) {
-
-                    await loadTaskMetadata(
-                        currentTaskId
-                    );
-                }
 
                 processButton.disabled =
                     selectedFile
@@ -2476,18 +2478,16 @@
             }
 
             else if (
-                job.status
-                === "FAILED"
+                job.status === "failed"
             ) {
 
-                clearInterval(
-                    pollTimer
-                );
-
-                pollTimer = null;
+                if (pollTimer) {
+                    clearInterval(pollTimer);
+                    pollTimer = null;
+                }
 
                 setJobMessage(
-                    job.error
+                    job.error_message
                     || "Document processing failed.",
                     true
                 );
@@ -2521,8 +2521,11 @@
 
         } catch (error) {
 
-            console.error(
-                error
+            console.error(error);
+
+            setJobMessage(
+                error.message,
+                true
             );
         }
     }
@@ -2532,85 +2535,13 @@
        CELERY TASK
     ===================================================== */
 
-    async function loadTaskState(
-        taskId
-    ) {
-
-        try {
-
-            const response =
-                await fetch(
-                    `/tasks/${taskId}`
-                );
-
-            if (!response.ok) {
-                return;
-            }
-
-            const task =
-                await response.json();
-
-            document.getElementById(
-                "job-task-state"
-            ).textContent =
-                task.state || "-";
-
-        } catch (error) {
-
-            console.error(
-                error
-            );
-        }
+    async function loadTaskState() {
+        // Celery is internal; processing state is exposed through /jobs/{job_id}.
     }
 
 
-    async function loadTaskMetadata(
-        taskId
-    ) {
-
-        try {
-
-            const response =
-                await fetch(
-                    `/tasks/${taskId}`
-                );
-
-            if (!response.ok) {
-                return;
-            }
-
-            const task =
-                await response.json();
-
-            if (
-                task.result
-                && typeof task.result
-                    === "object"
-            ) {
-
-                const parser =
-                    task.result
-                        .parser_used
-                    || "-";
-
-                const parserElement =
-                    document.getElementById(
-                        "parser-value"
-                    );
-
-                parserElement.textContent =
-                    parser;
-
-                parserElement.title =
-                    parser;
-            }
-
-        } catch (error) {
-
-            console.error(
-                error
-            );
-        }
+    async function loadTaskMetadata() {
+        // Celery is internal; processing state is exposed through /jobs/{job_id}.
     }
 
 
@@ -2630,14 +2561,16 @@
                 );
 
             if (!response.ok) {
-
                 throw new Error(
                     "Result could not be retrieved."
                 );
             }
 
+            const result =
+                await response.json();
+
             extractedText =
-                await response.text();
+                result.text || "";
 
             const words =
                 extractedText
@@ -2646,7 +2579,9 @@
                     .filter(Boolean);
 
             const wordCount =
-                words.length;
+                extractedText.trim()
+                    ? words.length
+                    : 0;
 
             const characterCount =
                 extractedText.length;
@@ -2683,6 +2618,45 @@
 
             resultBox.textContent =
                 extractedText;
+
+            const metadata =
+                result.metadata || {};
+
+            const parserElement =
+                document.getElementById(
+                    "parser-value"
+                );
+
+            const methods =
+                Array.isArray(metadata.pages)
+                    ? [
+                        ...new Set(
+                            metadata.pages
+                                .map(
+                                    page =>
+                                        page.method
+                                        || page.extraction_method
+                                )
+                                .filter(Boolean)
+                        )
+                    ]
+                    : [];
+
+            const parser =
+                metadata.parser_used
+                || metadata.method
+                || metadata.engine
+                || (
+                    methods.length
+                        ? methods.join(", ")
+                        : "-"
+                );
+
+            parserElement.textContent =
+                parser;
+
+            parserElement.title =
+                parser;
 
             copyButton.disabled = false;
             downloadButton.disabled = false;
@@ -2910,11 +2884,15 @@
                         <td>
                             <span
                                 class="badge ${escapeHtml(
-                                    job.status
+                                    job.status === "succeeded"
+                                        ? "COMPLETED"
+                                        : String(job.status || "").toUpperCase()
                                 )}"
                             >
                                 ${escapeHtml(
-                                    job.status
+                                    job.status === "succeeded"
+                                        ? "COMPLETED"
+                                        : String(job.status || "").toUpperCase()
                                 )}
                             </span>
                         </td>
@@ -3007,10 +2985,10 @@
                 await response.json();
 
             currentJobId =
-                job.document_id;
+                job.id;
 
             currentTaskId =
-                job.task_id;
+                null;
 
             startTime =
                 job.created_at
@@ -3027,53 +3005,56 @@
             document.getElementById(
                 "job-file-type"
             ).textContent =
-                job.file_type || "-";
+                job.detected_type || "-";
 
-            updateJobVisual(
-                job.status,
-                job.progress || 0
-            );
+            document.getElementById(
+                "job-task-state"
+            ).textContent =
+                job.stage || "-";
 
-            if (
-                currentTaskId
-            ) {
+            let progress = 0;
 
-                await loadTaskState(
-                    currentTaskId
-                );
+            if (job.status === "processing") {
+                progress = 50;
             }
 
             if (
-                job.status
-                === "COMPLETED"
+                job.status === "succeeded"
+                || job.status === "failed"
+            ) {
+                progress = 100;
+            }
+
+            const visualStatus =
+                job.status === "succeeded"
+                    ? "COMPLETED"
+                    : job.status.toUpperCase();
+
+            updateJobVisual(
+                visualStatus,
+                progress
+            );
+
+            if (
+                job.status === "succeeded"
             ) {
 
                 setJobMessage(
-                    "Completed job loaded from history."
+                    "Processing completed successfully."
                 );
 
                 await loadResult(
                     currentJobId
                 );
-
-                if (
-                    currentTaskId
-                ) {
-
-                    await loadTaskMetadata(
-                        currentTaskId
-                    );
-                }
             }
 
             else if (
-                job.status
-                === "FAILED"
+                job.status === "failed"
             ) {
 
                 setJobMessage(
-                    job.error
-                    || "Processing failed.",
+                    job.error_message
+                    || "Document processing failed.",
                     true
                 );
             }
@@ -3081,16 +3062,13 @@
             else {
 
                 setJobMessage(
-                    "Monitoring selected job..."
+                    job.status === "queued"
+                        ? "Waiting for an available worker."
+                        : "Document processing is in progress..."
                 );
 
                 beginPolling();
             }
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
 
         } catch (error) {
 
